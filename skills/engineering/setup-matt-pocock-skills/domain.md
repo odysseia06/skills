@@ -6,7 +6,7 @@ How the engineering skills should consume this repo's domain documentation when 
 
 - **`CONTEXT.md`** at the repo root, or
 - **`CONTEXT-MAP.md`** at the repo root if it exists — it points at one `CONTEXT.md` per context. Read each one relevant to the topic.
-- **`docs/adr/`** — read ADRs that touch the area you're about to work in. In multi-context repos, also check `src/<context>/docs/adr/` for context-scoped decisions.
+- **`~/.ai-workspace/<project>/docs/adr/`** (the AI workspace, outside the repo; `<project>` = this repo's directory name) — read ADRs that touch the area you're about to work in. In multi-context repos, also check `~/.ai-workspace/<project>/src/<context>/docs/adr/` for context-scoped decisions.
 
 If any of these files don't exist, **proceed silently**. Don't flag their absence; don't suggest creating them upfront. The producer skill (`/grill-with-docs`) creates them lazily when terms or decisions actually get resolved.
 
@@ -15,27 +15,36 @@ If any of these files don't exist, **proceed silently**. Don't flag their absenc
 Single-context repo (most repos):
 
 ```
+your repo (committed):
 /
 ├── CONTEXT.md
-├── docs/adr/
-│   ├── 0001-event-sourced-orders.md
-│   └── 0002-postgres-for-write-model.md
 └── src/
+
+the AI workspace (NOT committed):
+~/.ai-workspace/<project>/
+└── docs/adr/
+    ├── 0001-event-sourced-orders.md
+    └── 0002-postgres-for-write-model.md
 ```
 
 Multi-context repo (presence of `CONTEXT-MAP.md` at the root):
 
 ```
+your repo (committed):
 /
 ├── CONTEXT-MAP.md
-├── docs/adr/                          ← system-wide decisions
 └── src/
     ├── ordering/
-    │   ├── CONTEXT.md
-    │   └── docs/adr/                  ← context-specific decisions
+    │   └── CONTEXT.md
     └── billing/
-        ├── CONTEXT.md
-        └── docs/adr/
+        └── CONTEXT.md
+
+the AI workspace (NOT committed) — ADRs mirror the repo layout:
+~/.ai-workspace/<project>/
+├── docs/adr/                          ← system-wide decisions
+└── src/
+    ├── ordering/docs/adr/             ← context-specific decisions
+    └── billing/docs/adr/
 ```
 
 ## Use the glossary's vocabulary

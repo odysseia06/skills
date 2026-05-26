@@ -1,8 +1,14 @@
 # ADR Format
 
-ADRs live in `docs/adr/` and use sequential numbering: `0001-slug.md`, `0002-slug.md`, etc.
+ADRs live **outside the repo**, in the AI workspace, so they never get committed to the
+project. The location is `~/.ai-workspace/<project>/docs/adr/`, where `<project>` is the
+current repo's directory name (e.g. ``basename "$(git rev-parse --show-toplevel)"``). For
+context-scoped ADRs in a multi-context repo, mirror the source path under the workspace:
+`~/.ai-workspace/<project>/src/<context>/docs/adr/`.
 
-Create the `docs/adr/` directory lazily — only when the first ADR is needed.
+ADRs use sequential numbering: `0001-slug.md`, `0002-slug.md`, etc.
+
+Create the `~/.ai-workspace/<project>/docs/adr/` directory lazily — only when the first ADR is needed.
 
 ## Template
 
@@ -24,7 +30,7 @@ Only include these when they add genuine value. Most ADRs won't need them.
 
 ## Numbering
 
-Scan `docs/adr/` for the highest existing number and increment by one.
+Scan `~/.ai-workspace/<project>/docs/adr/` for the highest existing number and increment by one.
 
 ## When to offer an ADR
 
