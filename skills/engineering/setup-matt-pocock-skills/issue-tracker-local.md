@@ -1,18 +1,18 @@
 # Issue tracker: Local Markdown
 
-Issues and PRDs for this repo live as markdown files in `.scratch/`.
+This repo's issues and PRDs live as markdown files in `~/.ai-workspace/<project>/.scratch/` (the AI workspace, outside the repo; `<project>` = this repo's directory name, e.g. ``basename "$(git rev-parse --show-toplevel)"``).
 
 ## Conventions
 
-- One feature per directory: `.scratch/<feature-slug>/`
-- The PRD is `.scratch/<feature-slug>/PRD.md`
-- Implementation issues are `.scratch/<feature-slug>/issues/<NN>-<slug>.md`, numbered from `01`
+- One feature per directory: `~/.ai-workspace/<project>/.scratch/<feature-slug>/`
+- The PRD is `~/.ai-workspace/<project>/.scratch/<feature-slug>/PRD.md`
+- Implementation issues are `~/.ai-workspace/<project>/.scratch/<feature-slug>/issues/<NN>-<slug>.md`, numbered from `01`
 - Triage state is recorded as a `Status:` line near the top of each issue file (see `triage-labels.md` for the role strings)
 - Comments and conversation history append to the bottom of the file under a `## Comments` heading
 
 ## When a skill says "publish to the issue tracker"
 
-Create a new file under `.scratch/<feature-slug>/` (creating the directory if needed).
+Create a new file under `~/.ai-workspace/<project>/.scratch/<feature-slug>/` (creating the workspace directory and feature subdirectory lazily if they don't exist).
 
 ## When a skill says "fetch the relevant ticket"
 
