@@ -1,12 +1,12 @@
 # Issue tracker: Local Markdown
 
-This repo's issues and PRDs live as markdown files in `~/.ai-workspace/<project>/.scratch/` (the AI workspace, outside the repo; `<project>` = this repo's directory name, e.g. ``basename "$(git rev-parse --show-toplevel)"``).
+Issues and specs (you may know a spec as a PRD) for this repo live as markdown files in `~/.ai-workspace/<project>/.scratch/` (the AI workspace, outside the repo; `<project>` = this repo's directory name, e.g. ``basename "$(git rev-parse --show-toplevel)"``).
 
 ## Conventions
 
 - One feature per directory: `~/.ai-workspace/<project>/.scratch/<feature-slug>/`
-- The PRD is `~/.ai-workspace/<project>/.scratch/<feature-slug>/PRD.md`
-- Implementation issues are `~/.ai-workspace/<project>/.scratch/<feature-slug>/issues/<NN>-<slug>.md`, numbered from `01`
+- The spec is `~/.ai-workspace/<project>/.scratch/<feature-slug>/spec.md`
+- Implementation issues are one file per ticket at `~/.ai-workspace/<project>/.scratch/<feature-slug>/issues/<NN>-<slug>.md`, numbered from `01` — never a single combined tickets file
 - Triage state is recorded as a `Status:` line near the top of each issue file (see `triage-labels.md` for the role strings)
 - Comments and conversation history append to the bottom of the file under a `## Comments` heading
 
